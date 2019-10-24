@@ -7,7 +7,7 @@ output:
     toc: true
     toc_depth: 2
     toc_float: true
-    code_folding: hide
+    
     keep_md: true
 ---
 
@@ -18,14 +18,14 @@ knitr::opts_chunk$set(echo = TRUE)
 ## Introduction
 
 The nice looking document is an R Markdown document. It was developed in the R Studio environment. Unfortunately the 
-R Studio integerated formatting did not exists when I when through graduate school and I was left to write papers in
+R Studio integerated formatting did not exists when I attended graduate school and I was left to write papers in
 either Laetx or a blend of MS Word and excel(eek.). Both are very tedious compared to the markdown formatting syntax 
 that enables the users to author HTML, PDF, MS Word documents, and many other formats. 
 
 The aim of this document is to inspire the reader, regardless of their programming background, to author documents
 that require the presentation of graphs, data, formulas, or all of the above using this syntatial format. It is not 
-intended to be a comprehensive reference to R markdown or the markdown markup language. Links to such material can be 
-found in the appendix.
+intended to be a comprehensive reference to R markdown or the markdown markup language in general. Links to such 
+material can be found in the appendix.
 
 ## Getting Started 
 
@@ -47,7 +47,35 @@ fact the markdown was originally an HTML output.
 
 ### Code Chunks
 
+To embedd a code chunk, use the insert button in the upper right. Alternatively use the 
+keyboard shortcut *Ctrl+Alt+i* to embedd an R code chuck. 
+
+This is an example of a code chunk:
+```{r echo=TRUE}
+
+cool.data <- data.frame(normal_mu_0 = rnorm(1000),
+                        normal_mu_2 = rnorm(1000, mean = 2)
+                        )
+
+```
+
+To control the extent to which your code will appear in the document, use the gear in the upper right of the chunk. 
+
+If you wanted to hide the code but display the output, use echo = FALSE.
+```{r echo=FALSE}
+
+DT::datatable(data = cool.data)
+
+```
+
+Other options include the ability to supress warnings and message. See the link below for a detailed explaination on 
+chunk options.
+
+[https://yihui.name/knitr/options/?version=1.2.5001&mode=desktop#code-evaluation]
+
 ### General Text Formatting
+
+
 
 ## Presenting Data
 ### DT Package
